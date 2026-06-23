@@ -165,14 +165,6 @@ header#hdr{
   background:linear-gradient(100deg, rgba(6,16,26,.97) 18%, rgba(6,16,26,.55) 55%, rgba(6,16,26,.15) 100%);
   z-index:1;
 }
-.hero::after{
-  content:'';
-  position:absolute; right:0; top:0; bottom:0;
-  width:38%;
-  background:linear-gradient(135deg, transparent 40%, var(--green) 40.6%, var(--green) 46%, transparent 46.6%, transparent 60%, var(--green-deep) 60.6%, var(--green-deep) 64%, transparent 64.6%);
-  opacity:.85;
-  z-index:1;
-}
 .hero-cnt{
   position:relative; z-index:2;
   max-width:1280px; margin:0 auto; padding:0 32px;
@@ -591,6 +583,47 @@ header#hdr{
   font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
   background:var(--card); border:1px solid var(--line); color:var(--text);
   padding:6px 10px;
+}
+
+/* ===== WHATSAPP FAB ===== */
+.wa-fab{
+  position:fixed; bottom:30px; right:30px; z-index:90;
+  width:64px; height:64px;
+  background:linear-gradient(145deg, #32e26f, #19a653);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 28px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.1) inset;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease;
+}
+.wa-fab:hover{transform:scale(1.08); box-shadow:0 14px 34px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.14) inset;}
+.wa-pulse{
+  position:absolute; inset:0;
+  border-radius:50%;
+  background:rgba(50,226,111,.55);
+  animation:wa-pulse 2.6s ease-out infinite;
+}
+@keyframes wa-pulse{
+  0%{transform:scale(1); opacity:.6;}
+  70%{transform:scale(1.85); opacity:0;}
+  100%{transform:scale(1.85); opacity:0;}
+}
+.wa-fab svg{position:relative; width:30px; height:30px;}
+.wa-label{
+  position:absolute; right:calc(100% + 16px); top:50%;
+  transform:translateY(-50%) translateX(8px);
+  background:var(--bg-alt); color:var(--white);
+  border:1px solid var(--line);
+  padding:9px 16px;
+  font-family:var(--ff-head); font-size:12.5px; font-weight:700; letter-spacing:.03em;
+  white-space:nowrap;
+  opacity:0; pointer-events:none;
+  transition:opacity .2s ease, transform .2s ease;
+}
+.wa-fab:hover .wa-label{opacity:1; transform:translateY(-50%) translateX(0);}
+@media (max-width:640px){
+  .wa-fab{width:56px; height:56px; bottom:20px; right:20px;}
+  .wa-fab svg{width:26px; height:26px;}
+  .wa-label{display:none;}
 }
 
 /* ===== FOOTER ===== */
