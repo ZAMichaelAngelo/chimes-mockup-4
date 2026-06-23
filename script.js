@@ -6,6 +6,27 @@
 // quote_form_submit, newsletter_signup. No further code changes needed.
 window.dataLayer = window.dataLayer || [];
 
+// Cookie consent — shown once to new visitors, choice persists in localStorage (unlike
+// the sessionStorage attribution below, this should survive between visits). Every
+// dataLayer push site-wide is gated on consent === 'accepted', so nothing analytics/
+// ads-related fires until a visitor opts in. When a real GTM container is added, also
+// wire its Consent Mode default/update calls in here alongside setConsent().
+const COOKIE_CONSENT_KEY = 'chimes_cookie_consent';
+function getConsent() { return localStorage.getItem(COOKIE_CONSENT_KEY); }
+function setConsent(value) {
+  localStorage.setItem(COOKIE_CONSENT_KEY, value);
+  document.getElementById('cookieBanner')?.classList.remove('show');
+}
+const cookieBanner = document.getElementById('cookieBanner');
+if (cookieBanner && !getConsent()) {
+  requestAnimationFrame(() => requestAnimationFrame(() => cookieBanner.classList.add('show')));
+}
+document.getElementById('cbAccept')?.addEventListener('click', () => setConsent('accepted'));
+document.getElementById('cbDecline')?.addEventListener('click', () => setConsent('declined'));
+function track(payload) {
+  if (getConsent() === 'accepted') window.dataLayer.push(payload);
+}
+
 // Capture Google Ads click ID + UTM params on landing, persist for the whole visit
 // (sessionStorage survives navigation between pages, cleared when the tab closes) so
 // the quote form can attribute a lead back to the campaign that produced it.
@@ -29,12 +50,12 @@ function getAttribution() {
 // tel: / wa.me click tracking — fires on every page, no markup changes needed
 document.querySelectorAll('a[href^="tel:"]').forEach((a) => {
   a.addEventListener('click', () => {
-    window.dataLayer.push({ event: 'tel_click', phone_number: a.getAttribute('href').replace('tel:', ''), ...getAttribution() });
+    track({ event: 'tel_click', phone_number: a.getAttribute('href').replace('tel:', ''), ...getAttribution() });
   });
 });
 document.querySelectorAll('a[href*="wa.me"]').forEach((a) => {
   a.addEventListener('click', () => {
-    window.dataLayer.push({ event: 'whatsapp_click', ...getAttribution() });
+    track({ event: 'whatsapp_click', ...getAttribution() });
   });
 });
 
@@ -163,7 +184,7 @@ function handleForm(e) {
   const btn = e.target.querySelector('.btn-sub');
   if (!btn) return;
   const data = new FormData(e.target);
-  window.dataLayer.push({
+  track({
     event: 'quote_form_submit',
     crane_required: data.get('crane') || '(not specified)',
     ...getAttribution(),
@@ -185,7 +206,7 @@ function handleForm(e) {
 function handleSignup(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button');
-  window.dataLayer.push({ event: 'newsletter_signup', ...getAttribution() });
+  track({ event: 'newsletter_signup', ...getAttribution() });
   const original = btn.textContent;
   btn.textContent = 'Subscribed!';
   e.target.reset();
