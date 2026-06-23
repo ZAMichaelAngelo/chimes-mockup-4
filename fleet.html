@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Fleet &amp; Specifications — Chimes Crane Hire</title>
+  <meta name="description" content="Chimes Crane Hire's Tadano fleet, 8 to 400 tons. Click any crane for full specifications and typical use cases.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+<!-- NAV -->
+<header id="hdr">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo-link"><img src="Logos/Chimes_Dynamic_Logo_White_PNG.png" alt="Chimes Crane Hire"></a>
+    <button class="hbg" id="hbg" aria-label="Menu">
+      <svg width="22" height="15" viewBox="0 0 22 15" fill="none"><rect y="0" width="22" height="2.5" rx="1"/><rect y="6" width="22" height="2.5" rx="1"/><rect y="12" width="22" height="2.5" rx="1"/></svg>
+    </button>
+    <nav class="nav-links" id="nav">
+      <a href="index.html">Home</a>
+      <a href="fleet.html" class="active">Fleet &amp; Specs</a>
+      <a href="index.html#about">Who We Are</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-ctas">
+      <a href="tel:+27116261110" class="btn-out">+27 11 626 1110</a>
+      <a href="contact.html#quote" class="btn-fill">Get a Quote</a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero-v4" style="background-image:url('Cinematic%20Images/crane%20LBBD%20%231.jpg');">
+  <div class="page-hero-v4-cnt">
+    <span class="eyebrow">Our Fleet</span>
+    <h1>Built To Lift <span class="hl">Anything.</span></h1>
+    <p>Tadano cranes, 8 to 400 tons — every unit maintained to OEM specification with full inspection records. Click a crane for full specs and typical use cases.</p>
+  </div>
+</section>
+
+<!-- SMALL CRANES -->
+<section class="sec">
+  <div class="sec-inner">
+    <p style="font-size:13px; color:var(--muted); max-width:640px; margin-bottom:32px;">Specifications below reflect Chimes' Tadano fleet by capacity class. Exact load charts for your specific lift are available on request — <a href="contact.html#quote" class="hl">get in touch</a>.</p>
+
+    <div class="cap-hd fu" style="margin-bottom:24px;"><span class="eyebrow">01</span><h2 style="font-size:28px;">Small Cranes</h2></div>
+    <div class="fleet-card-grid sm fu">
+
+      <button class="fc" onclick="openModal('m-truck-815')" style="background-image:url('images/fleet/chimes-8-15t-truck.jpg');">
+        <span class="fc-sub">Truck Mount</span>
+        <div class="fc-tag"><div class="fc-class">8&ndash;15 Ton Capacity</div><div class="fc-name">8&ndash;15 Ton Truck Mount</div></div>
+      </button>
+
+      <button class="fc" onclick="openModal('m-at-40')" style="background-image:url('images/fleet/chimes-40t.jpg');">
+        <span class="fc-sub">All Terrain</span>
+        <div class="fc-tag"><div class="fc-class">Tadano ATF 40G-2</div><div class="fc-name">40 Ton All Terrain</div></div>
+      </button>
+
+      <button class="fc" onclick="openModal('m-truck-30')" style="background-image:url('images/fleet/chimes-30t.jpg');">
+        <span class="fc-sub">Truck Mount</span>
+        <div class="fc-tag"><div class="fc-class">30 Ton Capacity</div><div class="fc-name">30 Ton Truck Mount</div></div>
+      </button>
+
+      <button class="fc" onclick="openModal('m-at-50')" style="background-image:url('images/fleet/chimes-55t.jpg');">
+        <span class="fc-sub">All Terrain</span>
+        <div class="fc-tag"><div class="fc-class">55 Ton Capacity</div><div class="fc-name">55 Ton All Terrain</div></div>
+      </button>
+
+    </div>
+
+    <div class="cap-hd fu" style="margin:64px 0 24px;"><span class="eyebrow">02</span><h2 style="font-size:28px;">Big Cranes</h2></div>
+    <div class="fleet-card-grid fu">
+
+      <button class="fc" onclick="openModal('m-at-90')" style="background-image:url('images/fleet/chimes-90t.jpg');">
+        <span class="fc-sub">All Terrain</span>
+        <div class="fc-tag"><div class="fc-class">Tadano ATF 90G-4</div><div class="fc-name">90 Ton All Terrain</div></div>
+      </button>
+
+      <button class="fc" onclick="openModal('m-at-110')" style="background-image:url('images/fleet/chimes-110t.jpg');">
+        <span class="fc-sub">All Terrain</span>
+        <div class="fc-tag"><div class="fc-class">Tadano Faun ATF 110G-5</div><div class="fc-name">110 Ton All Terrain</div></div>
+      </button>
+
+      <button class="fc" onclick="openModal('m-at-220')" style="background-image:url('images/fleet/chimes-220t.jpg');">
+        <span class="fc-sub">Premium</span>
+        <div class="fc-tag"><div class="fc-class">126m With Jib</div><div class="fc-name">220 Ton All Terrain</div></div>
+      </button>
+
+      <button class="fc" onclick="openModal('m-at-400')" style="background-image:url('images/fleet/chimes-400t.jpg');">
+        <span class="fc-sub">Flagship</span>
+        <div class="fc-tag"><div class="fc-class">Our Most Powerful Unit</div><div class="fc-name">400 Ton All Terrain</div></div>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-v4">
+  <div class="stripe-corner"><span></span><span class="s2"></span></div>
+  <div class="cta-v4-inner fu">
+    <span class="eyebrow">Not Sure What You Need?</span>
+    <h2>Tell Us The Lift.<br>We'll <span class="hl">Spec The Crane.</span></h2>
+    <p style="color:var(--text); margin-bottom:30px;">Send us the load weight, height, radius and site access, and our team will recommend the right unit from the fleet above.</p>
+    <a href="contact.html#quote" class="btn-grn">Get A Quote</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="sec-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img src="Logos/Chimes_Dynamic_Logo_White_PNG.png" alt="Chimes Crane Hire">
+        <p>Chimes Crane Hire (Pty) Ltd — raising the standard in mobile crane hire, rigging and specialised transport across South Africa since 2003.</p>
+        <a href="https://www.facebook.com/ChimesCraneHire/" target="_blank" rel="noopener" aria-label="Facebook" class="ft-social">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+      <div class="ft-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="fleet.html">Fleet</a></li>
+          <li><a href="index.html#gallery">Projects</a></li>
+          <li><a href="contact.html#team">Team</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#services">Crane Hire</a></li>
+          <li><a href="index.html#services">Rigging</a></li>
+          <li><a href="index.html#services">Transport</a></li>
+          <li><a href="index.html#services">Lift Planning</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <p style="font-size:14px; color:var(--muted); margin-bottom:8px;">+27 11 626 1110</p>
+        <p style="font-size:14px; margin-bottom:8px;"><a href="mailto:office@chimes.co.za">office@chimes.co.za</a></p>
+        <p style="font-size:14px; color:var(--muted); margin-bottom:8px;">Nasmith Ave, Jupiter Industrial,<br>Germiston, Johannesburg</p>
+        <p style="font-size:14px; color:var(--muted);">+27 11 626 2267 (Fax)</p>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p>&copy; 2026 Chimes Crane Hire (Pty) Ltd.</p>
+      <span class="ft-tag">Navy For Authority &middot; Green For Go</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/27823891573" class="wa-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="position:fixed; bottom:24px; right:24px; width:54px; height:54px; background:#1faa55; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:80;">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.7.8-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.7-.7-2.8-2.4-2.9-2.5-.1-.2 0-.3.1-.4l.5-.6c.1-.2.1-.3 0-.5l-.6-1.4c-.1-.3-.3-.3-.5-.3h-.4c-.2 0-.4.1-.5.3-.2.2-.7.7-.7 1.7s.7 2 .8 2.1c.1.2 1.6 2.4 3.9 3.3 1.9.7 2.3.6 2.6.5.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1z"/></svg>
+</a>
+
+<!-- ===== MODALS ===== -->
+
+<div class="modal-backdrop" id="m-truck-815">
+  <div class="modal-card">
+    <div class="modal-img" style="background-image:url('images/fleet/chimes-8-15t-truck.jpg');"><span class="modal-tag">Truck Mount</span><button class="modal-close" onclick="closeModal('m-truck-815')" aria-label="Close">&times;</button></div>
+    <div class="modal-body">
+      <h3>8&ndash;15 Ton Truck Mount</h3>
+      <div class="modal-cap">Tadano TM Series</div>
+      <p class="modal-desc">Our smallest and most agile units, mounted on a standard truck chassis for fast road travel between sites. Ideal where access is tight and setup time matters.</p>
+      <table class="spec-table">
+        <tr><td>Capacity</td><td>8&ndash;15 Tons</td></tr>
+        <tr><td>Max Working Radius</td><td>10&ndash;15m</td></tr>
+        <tr><td>Type</td><td>Truck-Mounted</td></tr>
+        <tr><td>Travel Speed</td><td>Highway-capable</td></tr>
+      </table>
+      <div class="use-cases"><span>Urban Sites</span><span>HVAC Installs</span><span>Quick Setup</span><span>Tight Access</span></div>
+      <a href="contact.html#quote" class="btn-grn">Check Availability</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="m-at-40">
+  <div class="modal-card">
+    <div class="modal-img" style="background-image:url('images/fleet/chimes-40t.jpg');"><span class="modal-tag">All Terrain</span><button class="modal-close" onclick="closeModal('m-at-40')" aria-label="Close">&times;</button></div>
+    <div class="modal-body">
+      <h3>40 Ton All Terrain</h3>
+      <div class="modal-cap">Tadano ATF 40G-2</div>
+      <p class="modal-desc">A compact 2-axle all-terrain crane with independent suspension for excellent maneuverability, equally at home on construction sites and rough terrain.</p>
+      <table class="spec-table">
+        <tr><td>Capacity</td><td>40 Tons</td></tr>
+        <tr><td>Axles</td><td>2</td></tr>
+        <tr><td>Type</td><td>All Terrain</td></tr>
+      </table>
+      <div class="use-cases"><span>Construction</span><span>Telecoms</span><span>Rough Terrain</span></div>
+      <a href="contact.html#quote" class="btn-grn">Check Availability</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="m-truck-30">
+  <div class="modal-card">
+    <div class="modal-img" style="background-image:url('images/fleet/chimes-30t.jpg');"><span class="modal-tag">Truck Mount</span><button class="modal-close" onclick="closeModal('m-truck-30')" aria-label="Close">&times;</button></div>
+    <div class="modal-body">
+      <h3>30 Ton Truck Mount</h3>
+      <div class="modal-cap">Tadano TL300E</div>
+      <p class="modal-desc">A standard truck-chassis crane offering a cost-effective, quickly deployed solution for medium lifts around building sites and container yards.</p>
+      <table class="spec-table">
+        <tr><td>Capacity</td><td>30 Tons</td></tr>
+        <tr><td>Max Boom Length</td><td>38m</td></tr>
+        <tr><td>Type</td><td>Truck-Mounted</td></tr>
+      </table>
+      <div class="use-cases"><span>Building Construction</span><span>Container Handling</span><span>Fast Deployment</span></div>
+      <a href="contact.html#quote" class="btn-grn">Check Availability</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="m-at-50">
+  <div class="modal-card">
+    <div class="modal-img" style="background-image:url('images/fleet/chimes-55t.jpg');"><span class="modal-tag">All Terrain</span><button class="modal-close" onclick="closeModal('m-at-50')" aria-label="Close">&times;</button></div>
+    <div class="modal-body">
+      <h3>55 Ton All Terrain</h3>
+      <div class="modal-cap">55 Ton Capacity</div>
+      <p class="modal-desc">A heavy construction workhorse with an optional jib extension, suited to steel erection, industrial plant work and precast concrete placement.</p>
+      <table class="spec-table">
+        <tr><td>Capacity</td><td>55 Tons</td></tr>
+        <tr><td>Type</td><td>All Terrain</td></tr>
+      </table>
+      <div class="use-cases"><span>Steel Erection</span><span>Industrial Plant</span><span>Precast Concrete</span><span>Jib Extension Available</span></div>
+      <a href="contact.html#quote" class="btn-grn">Check Availability</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="m-at-90">
+  <div class="modal-card">
+    <div class="modal-img" style="background-image:url('images/fleet/chimes-90t.jpg');"><span class="modal-tag">All Terrain</span><button class="modal-close" onclick="closeModal('m-at-90')" aria-label="Close">&times;</button></div>
+    <div class="modal-body">
+      <h3>90 Ton All Terrain</h3>
+      <div class="modal-cap">Tadano ATF 90G-4 &middot; Verified Spec</div>
+      <p class="modal-desc">An industrial and petrochemical specialist, capable of handling heavy modules over long reach — a regular on mining and bridge-construction sites.</p>
+      <table class="spec-table">
+        <tr><td>Capacity</td><td>90 Tons</td></tr>
+        <tr><td>Axles</td><td>4</td></tr>
+        <tr><td>Type</td><td>All Terrain</td></tr>
+      </table>
+      <div class="use-cases"><span>Heavy Modules</span><span>Mining Equipment</span><span>Bridge Construction</span><span>Wind Energy</span></div>
+      <a href="contact.html#quote" class="btn-grn">Check Availability</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="m-at-110">
+  <div class="modal-card">
+    <div class="modal-img" style="background-image:url('images/fleet/chimes-110t.jpg');"><span class="modal-tag">All Terrain</span><button class="modal-close" onclick="closeModal('m-at-110')" aria-label="Close">&times;</button></div>
+    <div class="modal-body">
+      <h3>110 Ton All Terrain</h3>
+      <div class="modal-cap">Tadano Faun ATF 110G-5</div>
+      <p class="modal-desc">A proven mid-range performer across petrochemical, mining and heavy construction projects, bridging the gap between our mid-tier and flagship units.</p>
+      <table class="spec-table">
+        <tr><td>Capacity</td><td>110 Tons</td></tr>
+        <tr><td>Type</td><td>All Terrain</td></tr>
+      </table>
+      <div class="use-cases"><span>Industrial Lifts</span><span>Petrochemical</span><span>Mid-Size Tandem Lifts</span></div>
+      <a href="contact.html#quote" class="btn-grn">Check Availability</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="m-at-220">
+  <div class="modal-card">
+    <div class="modal-img" style="background-image:url('images/fleet/chimes-220t.jpg');"><span class="modal-tag">Premium</span><button class="modal-close" onclick="closeModal('m-at-220')" aria-label="Close">&times;</button></div>
+    <div class="modal-body">
+      <h3>220 Ton All Terrain</h3>
+      <div class="modal-cap">Tadano ATF 220G-5 &middot; Verified Spec</div>
+      <p class="modal-desc">Tadano's all-terrain cranes feature purpose-built frames with full-width two-man cabs, electronic load moment devices, and automatic overload shut-off — engineered for reliable performance in any climate or terrain.</p>
+      <table class="spec-table">
+        <tr><td>Capacity</td><td>220 Tons</td></tr>
+        <tr><td>Boom Length</td><td>68m</td></tr>
+        <tr><td>Reach With Jib</td><td>126m</td></tr>
+        <tr><td>Axles</td><td>5</td></tr>
+        <tr><td>Type</td><td>All Terrain</td></tr>
+      </table>
+      <div class="use-cases"><span>Refinery Operations</span><span>Power Plant Construction</span><span>Tandem Lifts</span><span>Extreme Reach</span></div>
+      <a href="contact.html#quote" class="btn-grn">Check Availability</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="m-at-400">
+  <div class="modal-card">
+    <div class="modal-img" style="background-image:url('images/fleet/chimes-400t.jpg');"><span class="modal-tag">Flagship</span><button class="modal-close" onclick="closeModal('m-at-400')" aria-label="Close">&times;</button></div>
+    <div class="modal-body">
+      <h3>400 Ton All Terrain</h3>
+      <div class="modal-cap">Tadano ATF 400G-6</div>
+      <p class="modal-desc">Our most powerful unit, reserved for the heaviest and most demanding lifts across South Africa's biggest industrial projects.</p>
+      <table class="spec-table">
+        <tr><td>Capacity</td><td>400 Tons</td></tr>
+        <tr><td>Axles</td><td>6</td></tr>
+        <tr><td>Type</td><td>All Terrain &middot; Heavy Lift</td></tr>
+      </table>
+      <div class="use-cases"><span>Power Plants</span><span>Extreme Heavy Lifts</span><span>Industrial Mega Projects</span></div>
+      <a href="contact.html#quote" class="btn-grn">Check Availability</a>
+    </div>
+  </div>
+</div>
+
+<script src="script.js?v=1"></script>
+</body>
+</html>
