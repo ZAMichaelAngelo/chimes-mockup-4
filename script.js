@@ -146,3 +146,53 @@ function handleSignup(e) {
   e.target.reset();
   setTimeout(() => { btn.textContent = original; }, 2500);
 }
+
+// Galleries page: tabs
+function switchGalTab(key) {
+  document.querySelectorAll('.gal-tab-btn').forEach(el => el.classList.toggle('active', el.dataset.tab === key));
+  document.querySelectorAll('.gal-panel').forEach(el => el.classList.toggle('active', el.id === 'panel-' + key));
+}
+document.querySelectorAll('.gal-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchGalTab(btn.dataset.tab));
+});
+
+// Galleries page: lightbox
+const lightbox = document.getElementById('lightbox');
+if (lightbox) {
+  const lbImg = document.getElementById('lbImg');
+  const lbCount = document.getElementById('lbCount');
+  let lbList = [];
+  let lbIdx = 0;
+
+  function showLb(i) {
+    lbIdx = (i + lbList.length) % lbList.length;
+    lbImg.src = lbList[lbIdx].src;
+    lbImg.alt = lbList[lbIdx].alt;
+    lbCount.textContent = String(lbIdx + 1).padStart(2, '0') + ' / ' + String(lbList.length).padStart(2, '0');
+  }
+  function openLb(panel, index) {
+    lbList = [...panel.querySelectorAll('img')];
+    showLb(index);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.gal-panel').forEach(panel => {
+    panel.querySelectorAll('figure').forEach((fig, i) => {
+      fig.addEventListener('click', () => openLb(panel, i));
+    });
+  });
+  document.getElementById('lbClose')?.addEventListener('click', closeLb);
+  document.getElementById('lbPrev')?.addEventListener('click', () => showLb(lbIdx - 1));
+  document.getElementById('lbNext')?.addEventListener('click', () => showLb(lbIdx + 1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLb(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') showLb(lbIdx - 1);
+    if (e.key === 'ArrowRight') showLb(lbIdx + 1);
+  });
+}
