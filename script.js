@@ -1,5 +1,43 @@
 // Chimes Crane Hire — Mockup v4 shared behaviour
 
+// Analytics / Google Ads readiness — pushes into dataLayer work whether or not a real
+// GTM container is loaded yet (harmless array pushes until then). Once GTM is added,
+// configure triggers on these event names: tel_click, whatsapp_click,
+// quote_form_submit, newsletter_signup. No further code changes needed.
+window.dataLayer = window.dataLayer || [];
+
+// Capture Google Ads click ID + UTM params on landing, persist for the whole visit
+// (sessionStorage survives navigation between pages, cleared when the tab closes) so
+// the quote form can attribute a lead back to the campaign that produced it.
+(function captureAttribution() {
+  const params = new URLSearchParams(window.location.search);
+  const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+  keys.forEach((key) => {
+    const val = params.get(key);
+    if (val) sessionStorage.setItem('chimes_' + key, val);
+  });
+})();
+function getAttribution() {
+  const out = {};
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'].forEach((key) => {
+    const val = sessionStorage.getItem('chimes_' + key);
+    if (val) out[key] = val;
+  });
+  return out;
+}
+
+// tel: / wa.me click tracking — fires on every page, no markup changes needed
+document.querySelectorAll('a[href^="tel:"]').forEach((a) => {
+  a.addEventListener('click', () => {
+    window.dataLayer.push({ event: 'tel_click', phone_number: a.getAttribute('href').replace('tel:', ''), ...getAttribution() });
+  });
+});
+document.querySelectorAll('a[href*="wa.me"]').forEach((a) => {
+  a.addEventListener('click', () => {
+    window.dataLayer.push({ event: 'whatsapp_click', ...getAttribution() });
+  });
+});
+
 // Splash screen (homepage entry only) + page-transition curtain reveal/cover
 const splash = document.getElementById('splash');
 const pageTrans = document.getElementById('pageTrans');
@@ -124,6 +162,12 @@ function handleForm(e) {
   e.preventDefault();
   const btn = e.target.querySelector('.btn-sub');
   if (!btn) return;
+  const data = new FormData(e.target);
+  window.dataLayer.push({
+    event: 'quote_form_submit',
+    crane_required: data.get('crane') || '(not specified)',
+    ...getAttribution(),
+  });
   const original = btn.textContent;
   btn.textContent = 'Sending...';
   btn.disabled = true;
@@ -141,6 +185,7 @@ function handleForm(e) {
 function handleSignup(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button');
+  window.dataLayer.push({ event: 'newsletter_signup', ...getAttribution() });
   const original = btn.textContent;
   btn.textContent = 'Subscribed!';
   e.target.reset();
