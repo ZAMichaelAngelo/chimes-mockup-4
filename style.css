@@ -277,6 +277,7 @@ header#hdr{
   font-family:var(--ff-head); font-size:12px; font-weight:800;
   letter-spacing:.06em; text-transform:uppercase; color:var(--text);
 }
+.bee-ft{margin-top:16px; margin-bottom:18px;}
 
 /* ===== CAPABILITY CARDS (What We Do) ===== */
 .cap-hd{margin-bottom:48px;}
