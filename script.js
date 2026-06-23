@@ -1,5 +1,43 @@
 // Chimes Crane Hire — Mockup v4 shared behaviour
 
+// Splash screen (homepage entry only) + page-transition curtain reveal/cover
+const splash = document.getElementById('splash');
+const pageTrans = document.getElementById('pageTrans');
+
+function revealCurtain() {
+  if (!pageTrans) return;
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    pageTrans.style.transform = 'translateY(-100%)';
+  }));
+}
+
+if (splash) {
+  window.addEventListener('load', () => {
+    setTimeout(() => { splash.classList.add('hide'); revealCurtain(); }, 850);
+  });
+} else {
+  revealCurtain();
+}
+
+if (pageTrans) {
+  document.querySelectorAll('a[href]').forEach((a) => {
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || a.target === '_blank') return;
+    const dest = new URL(href, window.location.href);
+    if (dest.pathname === window.location.pathname) return; // same-page anchor, let browser scroll
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      pageTrans.style.transition = 'none';
+      pageTrans.style.transform = 'translateY(100%)';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        pageTrans.style.transition = 'transform .5s cubic-bezier(.76,0,.24,1)';
+        pageTrans.style.transform = 'translateY(0)';
+      }));
+      setTimeout(() => { window.location.href = href; }, 480);
+    });
+  });
+}
+
 // Header shadow / nav state on scroll
 const hdr = document.getElementById('hdr');
 if (hdr) window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 20));
