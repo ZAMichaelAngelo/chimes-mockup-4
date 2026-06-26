@@ -366,8 +366,9 @@ header#hdr{
   font:inherit;
   cursor:pointer;
   transition:transform .35s ease;
+  transform:scale(1.01);
 }
-.fc:hover{transform:scale(1.025); z-index:2;}
+.fc:hover{transform:scale(1.035); z-index:2;}
 .fc::before{
   content:'';
   position:absolute; inset:0;
