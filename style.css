@@ -130,7 +130,12 @@ header#hdr{
   display:flex; align-items:center; justify-content:space-between;
   height:92px;
 }
-.logo-link img{height:66px;}
+.logo-link{
+  display:inline-flex; align-items:center;
+  background:#fff; border-radius:50px;
+  padding:7px 16px;
+}
+.logo-link img{height:38px;}
 .nav-links{display:flex; align-items:center; gap:34px;}
 .nav-links a{
   font-family:var(--ff-head);
