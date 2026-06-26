@@ -132,7 +132,7 @@ header#hdr{
 }
 .logo-link{
   display:inline-flex; align-items:center;
-  background:#fff; border-radius:50px;
+  background:#fff; border-radius:12px;
   padding:7px 16px;
 }
 .logo-link img{height:38px;}
