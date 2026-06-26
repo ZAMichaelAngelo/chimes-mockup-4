@@ -354,7 +354,7 @@ header#hdr{
 .fc{
   position:relative;
   aspect-ratio:4/5;
-  background-size:cover; background-position:center;
+  background-size:102% 102%; background-position:center;
   overflow:hidden;
   border:1px solid var(--line);
   display:block;
@@ -365,10 +365,9 @@ header#hdr{
   text-align:left;
   font:inherit;
   cursor:pointer;
-  transition:transform .35s ease;
-  transform:scale(1.01);
+  transition:transform .35s ease, background-size .35s ease;
 }
-.fc:hover{transform:scale(1.035); z-index:2;}
+.fc:hover{transform:scale(1.025); background-size:105% 105%; z-index:2;}
 .fc::before{
   content:'';
   position:absolute; inset:0;
