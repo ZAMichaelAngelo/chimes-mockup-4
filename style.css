@@ -104,7 +104,13 @@ button{
   transition:opacity .5s ease, visibility .5s ease;
 }
 #splash.hide{opacity:0; visibility:hidden; pointer-events:none;}
-.splash-logo{height:70px; animation:pulse-logo 1.15s ease-in-out infinite;}
+.splash-pill{
+  display:inline-flex; align-items:center;
+  background:#fff; border-radius:16px;
+  padding:14px 30px;
+  animation:pulse-logo 1.15s ease-in-out infinite;
+}
+.splash-pill img{height:58px; display:block;}
 @keyframes pulse-logo{
   0%, 100%{opacity:.5; transform:scale(.92);}
   50%{opacity:1; transform:scale(1.06);}
