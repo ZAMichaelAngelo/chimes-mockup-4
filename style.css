@@ -560,6 +560,33 @@ header#hdr{
 .tlr-body h3{font-size:19px; margin-bottom:8px;}
 .tlr-body p{font-size:14px; color:var(--text);}
 
+/* ===== FLEET CATALOG CARDS (v3-style, fleet.html only) ===== */
+.fleet-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+.fl-card{
+  background:var(--card); border:1px solid var(--line);
+  overflow:hidden; display:block; width:100%; padding:0; margin:0;
+  text-align:left; font:inherit; color:inherit; cursor:pointer;
+  transition:transform .25s ease, border-color .25s ease;
+}
+.fl-card:hover{transform:translateY(-4px); border-color:var(--green);}
+.fl-img{height:190px; position:relative; overflow:hidden;}
+.fl-img img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; display:block;}
+.fl-img::after{content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(6,12,18,.7) 0%, transparent 55%); pointer-events:none;}
+.fl-tag{
+  position:absolute; bottom:10px; left:10px; z-index:1;
+  background:var(--green); color:var(--navy-ink);
+  font-family:var(--ff-head); font-size:10px; font-weight:800;
+  letter-spacing:.08em; text-transform:uppercase; padding:4px 9px;
+}
+.fl-body{padding:18px 20px 22px;}
+.fl-body h3{font-family:var(--ff-head); font-size:16px; font-weight:800; color:var(--white); margin-bottom:3px;}
+.fl-cap{font-family:var(--ff-head); font-size:12px; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px;}
+.fl-body p{font-size:12.5px; color:var(--text); line-height:1.55; margin-bottom:14px;}
+
+.fleet-group-hd{display:flex; align-items:baseline; gap:16px; margin:64px 0 28px;}
+.fleet-group-hd h3{font-family:var(--ff-head); font-size:22px; font-weight:800; color:var(--white);}
+.fleet-group-hd hr{flex:1; border:none; border-top:1px solid var(--line);}
+
 /* ===== FORM / TEAM / CONTACT ===== */
 .form{background:var(--card); border:1px solid var(--line); padding:36px;}
 .f-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
@@ -830,7 +857,7 @@ footer{background:var(--bg-alt); border-top:1px solid var(--line); padding:64px 
   .about-split, .ind-split{grid-template-columns:1fr;}
   .cap-grid{grid-template-columns:1fr;}
   .cap-feature{grid-row:auto;}
-  .fleet-card-grid, .tlr-grid{grid-template-columns:repeat(2,1fr);}
+  .fleet-card-grid, .tlr-grid, .fleet-grid{grid-template-columns:repeat(2,1fr);}
   .stat-grid{grid-template-columns:repeat(2,1fr);}
   .quick-grid, .team-grid{grid-template-columns:1fr;}
   .ft-top{grid-template-columns:1fr 1fr;}
@@ -840,7 +867,7 @@ footer{background:var(--bg-alt); border-top:1px solid var(--line); padding:64px 
 }
 @media (max-width:640px){
   .stat-grid{grid-template-columns:1fr 1fr;}
-  .fleet-card-grid, .tlr-grid{grid-template-columns:1fr 1fr;}
+  .fleet-card-grid, .tlr-grid, .fleet-grid{grid-template-columns:1fr 1fr;}
   .ft-top{grid-template-columns:1fr;}
   .ft-bot{flex-direction:column; gap:8px; align-items:flex-start;}
 }
