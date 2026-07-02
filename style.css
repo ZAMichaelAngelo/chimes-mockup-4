@@ -157,6 +157,31 @@ header#hdr{
   transition:width .25s ease;
 }
 .nav-links a.active::after, .nav-links a:hover::after{width:100%;}
+.nav-item{position:relative;}
+.nav-preview{
+  position:absolute; top:calc(100% + 18px); left:50%;
+  transform:translate(-50%, 6px);
+  opacity:0; pointer-events:none;
+  transition:opacity .2s ease, transform .2s ease;
+  background:var(--card); border:1px solid var(--line);
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+  z-index:100;
+}
+.nav-item:hover .nav-preview{opacity:1; pointer-events:auto; transform:translate(-50%, 0);}
+.nav-item:last-child .nav-preview{left:auto; right:0; transform:translateY(6px);}
+.nav-item:last-child:hover .nav-preview{transform:translateY(0);}
+
+.nav-preview.simple{width:260px; padding:14px;}
+.nav-preview.simple img{width:100%; height:140px; object-fit:cover; display:block; margin-bottom:12px;}
+.nav-preview.simple .np-tag{font-family:var(--ff-head); font-size:13px; font-weight:700; color:var(--text); line-height:1.4;}
+
+.nav-preview.rich{width:400px; padding:16px;}
+.nav-preview.rich .np-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+.nav-preview.rich .np-item{display:block; text-align:center;}
+.nav-preview.rich .np-item img{width:100%; height:64px; object-fit:cover; display:block; margin-bottom:6px; transition:opacity .2s ease;}
+.nav-preview.rich .np-item:hover img{opacity:.75;}
+.nav-preview.rich .np-item span{font-family:var(--ff-head); font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; color:var(--text);}
+
 .nav-ctas{display:flex; align-items:center; gap:14px;}
 .btn-out, .btn-fill, .btn-grn, .btn-wht, .btn-hero, .btn-hero-out{
   font-family:var(--ff-head);
@@ -779,7 +804,9 @@ footer{background:var(--bg-alt); border-top:1px solid var(--line); padding:64px 
     border-bottom:1px solid var(--line);
     padding:10px 32px 20px;
   }
+  .nav-links.open .nav-item{width:100%;}
   .nav-links.open a{padding:10px 0; width:100%;}
+  .nav-links.open .nav-preview{display:none;}
   .hbg{display:flex;}
   .nav-ctas .btn-out{display:none;}
   .modal-close, .lb-close, .lb-prev, .lb-next, .testi-arrow{width:42px; height:42px;}
