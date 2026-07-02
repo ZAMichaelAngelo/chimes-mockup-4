@@ -143,7 +143,7 @@ header#hdr{
 }
 .logo-link img{height:38px;}
 .nav-links{display:flex; align-items:center; gap:34px;}
-.nav-links a{
+.nav-item > a{
   font-family:var(--ff-head);
   font-size:12.5px; font-weight:700;
   letter-spacing:.1em; text-transform:uppercase;
@@ -151,12 +151,12 @@ header#hdr{
   position:relative;
   padding:6px 0;
 }
-.nav-links a.active, .nav-links a:hover{color:var(--white);}
-.nav-links a::after{
+.nav-item > a.active, .nav-item > a:hover{color:var(--white);}
+.nav-item > a::after{
   content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--green);
   transition:width .25s ease;
 }
-.nav-links a.active::after, .nav-links a:hover::after{width:100%;}
+.nav-item > a.active::after, .nav-item > a:hover::after{width:100%;}
 .nav-item{position:relative;}
 .nav-preview{
   position:absolute; top:calc(100% + 18px); left:50%;
