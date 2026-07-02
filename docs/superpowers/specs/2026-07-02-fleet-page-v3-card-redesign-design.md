@@ -42,8 +42,15 @@ Replace the two `.cap-hd`-based group headers ("01 / Small Cranes", "02 / Big Cr
 - `style.css` — new `.fleet-grid`/`.fl-card`/`.fl-img`/`.fl-tag`/`.fl-body`/`.fl-cap`/`.fleet-group-hd` rules, plus responsive additions.
 - `fleet.html` — Small Cranes / Big Cranes catalog markup switches from `.fleet-card-grid`/`.fc` to the new classes; group headers switch from `.cap-hd` to `.fleet-group-hd`. Description copy for each of the 8 cranes is reused verbatim from v3's `fleet.html`.
 
+## 4. Modal: keep the side-by-side layout down to narrower windows
+
+The spec modal (`.modal-card`) already renders image-left/specs-right (`grid-template-columns:1fr 1fr`) at desktop widths — this part is not changing. The problem is the breakpoint at which it collapses to stacked (image-on-top): `style.css:834` currently sets `.modal-card{grid-template-columns:1fr;}` inside the sitewide `@media (max-width:980px)` block, which is far wider than the modal actually needs and makes it stack on many ordinary laptop windows.
+
+Fix: pull that single rule out of the 980px block into its own `@media (max-width:680px)` block, so the modal only stacks on genuinely narrow (phone-width) viewports. This does not touch the rest of the 980px block (nav, other grids), same surgical approach used for the earlier nav-breakpoint fix. Image cropping behavior (`background-size:cover`) is unchanged — confirmed with the user this is specifically about the stacking breakpoint, not the crop.
+
 ## Out of scope
 
-- No changes to `index.html`, modals, or the CTA band.
+- No changes to `index.html`, modals' spec-table content, or the CTA band.
 - No changes to `chimes-mockup-v3` (source reference only).
 - No new images — same `images/fleet/chimes-*.jpg` files already used by both v3 and v4.
+- Image crop behavior (`background-size:cover` on `.modal-img`) is unchanged — user confirmed the issue is the stacking breakpoint, not cropping.
