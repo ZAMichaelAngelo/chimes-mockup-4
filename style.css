@@ -647,28 +647,31 @@ header#hdr{
   border:1px solid var(--line);
   max-width:760px; width:100%;
   max-height:88vh; overflow:auto;
-  display:grid; grid-template-columns:1fr 1fr;
 }
 .modal-img{
-  background-size:cover; background-position:center;
-  min-height:280px; position:relative;
+  height:260px; background-size:cover; background-position:center;
+  position:relative;
+}
+.modal-img::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(6,12,18,.65) 0%, transparent 60%);
 }
 .modal-close{
-  position:absolute; top:14px; right:14px;
+  position:absolute; top:14px; right:14px; z-index:2;
   width:34px; height:34px;
   background:rgba(6,12,18,.7); color:#fff; border:none;
   font-size:20px; line-height:1;
 }
 .modal-tag{
-  position:absolute; top:14px; left:14px; z-index:1;
+  position:absolute; bottom:14px; left:20px; z-index:1;
   font-family:var(--ff-head); font-size:11px; font-weight:800;
   letter-spacing:.1em; text-transform:uppercase; color:var(--navy-ink);
   background:var(--green); padding:5px 10px;
 }
-.modal-body{padding:34px;}
-.modal-body h3{font-size:22px; margin-bottom:6px;}
-.modal-cap{font-family:var(--ff-head); font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--green); margin-bottom:16px; text-transform:uppercase;}
-.modal-desc{font-size:14px; margin-bottom:18px;}
+.modal-body{padding:30px 34px 38px;}
+.modal-body h3{font-size:26px; margin-bottom:6px;}
+.modal-cap{font-family:var(--ff-head); font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--green); margin-bottom:18px; text-transform:uppercase;}
+.modal-desc{font-size:14px; line-height:1.7; margin-bottom:18px;}
 .spec-table{width:100%; border-collapse:collapse; margin-bottom:18px;}
 .spec-table tr{border-bottom:1px solid var(--line);}
 .spec-table td{padding:9px 0; font-size:13.5px;}
@@ -834,9 +837,6 @@ footer{background:var(--bg-alt); border-top:1px solid var(--line); padding:64px 
   .f-row{grid-template-columns:1fr;}
   .signup-band{flex-direction:column; align-items:flex-start;}
   .signup-form{width:100%; min-width:0;}
-}
-@media (max-width:680px){
-  .modal-card{grid-template-columns:1fr;}
 }
 @media (max-width:640px){
   .stat-grid{grid-template-columns:1fr 1fr;}

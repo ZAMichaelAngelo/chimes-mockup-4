@@ -42,11 +42,11 @@ Replace the two `.cap-hd`-based group headers ("01 / Small Cranes", "02 / Big Cr
 - `style.css` — new `.fleet-grid`/`.fl-card`/`.fl-img`/`.fl-tag`/`.fl-body`/`.fl-cap`/`.fleet-group-hd` rules, plus responsive additions.
 - `fleet.html` — Small Cranes / Big Cranes catalog markup switches from `.fleet-card-grid`/`.fc` to the new classes; group headers switch from `.cap-hd` to `.fleet-group-hd`. Description copy for each of the 8 cranes is reused verbatim from v3's `fleet.html`.
 
-## 4. Modal: keep the side-by-side layout down to narrower windows
+## 4. Modal: match v3's layout (wide banner image, not side-by-side)
 
-The spec modal (`.modal-card`) already renders image-left/specs-right (`grid-template-columns:1fr 1fr`) at desktop widths — this part is not changing. The problem is the breakpoint at which it collapses to stacked (image-on-top): `style.css:834` currently sets `.modal-card{grid-template-columns:1fr;}` inside the sitewide `@media (max-width:980px)` block, which is far wider than the modal actually needs and makes it stack on many ordinary laptop windows.
+Superseded an earlier, incorrect read of this requirement (see git history) — the user does not want the image-left/specs-right split v4 had. They want v3's actual modal structure: a single column, with a full-width wide/landscape banner image across the top (v3's `.modal-img{height:260px}`) and the spec content below it — reskinned dark to match v4.
 
-Fix: pull that single rule out of the 980px block into its own `@media (max-width:680px)` block, so the modal only stacks on genuinely narrow (phone-width) viewports. This does not touch the rest of the 980px block (nav, other grids), same surgical approach used for the earlier nav-breakpoint fix. Image cropping behavior (`background-size:cover`) is unchanged — confirmed with the user this is specifically about the stacking breakpoint, not the crop.
+Implemented directly (not deferred to the plan below, since it's a small, self-contained CSS change already verified working): `.modal-card` dropped its `grid-template-columns:1fr 1fr`, `.modal-img` changed from `min-height:280px` (right-column fill) to a fixed `height:260px` full-width banner with a bottom-fade gradient scrim (`rgba(6,12,18,.65)` in place of v3's navy tone), and `.modal-tag` moved from top-left to bottom-left of the image to match v3's badge placement. The now-unnecessary responsive override that used to collapse the two-column grid to one column below a breakpoint was removed, since the modal is single-column at every width now, same as v3.
 
 ## Out of scope
 
