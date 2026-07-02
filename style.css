@@ -550,6 +550,15 @@ header#hdr{
 .quote-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; position:relative; z-index:1;}
 @media (max-width:980px){.quote-grid{grid-template-columns:1fr; gap:40px;}}
 
+/* ===== SPECIALISED SOLUTIONS PAGE ===== */
+.tlr-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+.tlr-card{background:var(--card); border:1px solid var(--line); transition:transform .25s ease, border-color .25s ease;}
+.tlr-card:hover{transform:translateY(-4px); border-color:var(--green);}
+.tlr-img{height:200px; background-size:cover; background-position:center;}
+.tlr-body{padding:24px;}
+.tlr-body h3{font-size:19px; margin-bottom:8px;}
+.tlr-body p{font-size:14px; color:var(--text);}
+
 /* ===== FORM / TEAM / CONTACT ===== */
 .form{background:var(--card); border:1px solid var(--line); padding:36px;}
 .f-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
@@ -813,7 +822,7 @@ footer{background:var(--bg-alt); border-top:1px solid var(--line); padding:64px 
   .about-split, .ind-split{grid-template-columns:1fr;}
   .cap-grid{grid-template-columns:1fr;}
   .cap-feature{grid-row:auto;}
-  .fleet-card-grid{grid-template-columns:repeat(2,1fr);}
+  .fleet-card-grid, .tlr-grid{grid-template-columns:repeat(2,1fr);}
   .stat-grid{grid-template-columns:repeat(2,1fr);}
   .quick-grid, .team-grid{grid-template-columns:1fr;}
   .ft-top{grid-template-columns:1fr 1fr;}
@@ -824,7 +833,7 @@ footer{background:var(--bg-alt); border-top:1px solid var(--line); padding:64px 
 }
 @media (max-width:640px){
   .stat-grid{grid-template-columns:1fr 1fr;}
-  .fleet-card-grid{grid-template-columns:1fr 1fr;}
+  .fleet-card-grid, .tlr-grid{grid-template-columns:1fr 1fr;}
   .ft-top{grid-template-columns:1fr;}
   .ft-bot{flex-direction:column; gap:8px; align-items:flex-start;}
 }
