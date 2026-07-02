@@ -152,9 +152,11 @@ header#hdr{
   padding:6px 0;
 }
 .nav-links a.active, .nav-links a:hover{color:var(--white);}
-.nav-links a.active::after{
-  content:''; position:absolute; left:0; bottom:-2px; width:100%; height:2px; background:var(--green);
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--green);
+  transition:width .25s ease;
 }
+.nav-links a.active::after, .nav-links a:hover::after{width:100%;}
 .nav-ctas{display:flex; align-items:center; gap:14px;}
 .btn-out, .btn-fill, .btn-grn, .btn-wht, .btn-hero, .btn-hero-out{
   font-family:var(--ff-head);
